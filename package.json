@@ -1,0 +1,27 @@
+{
+  "name": "selfier",
+  "version": "1.0.0",
+  "description": "An effective tool for live presentations.",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ./src",
+    "build-macOS": "electron-packager ./src selfier --platform=darwin --arch=x64 --overwrite",
+    "build-windows": "electron-packager ./src selfier --platform=win32 --arch=x64 --overwrite",
+    "build-linux": "electron-packager ./src selfier --platform=linux --arch=x64 --overwrite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pokiiio/selfier.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pokiiio/selfier/issues"
+  },
+  "homepage": "https://github.com/pokiiio/selfier#readme",
+  "devDependencies": {
+    "electron": "^4.1.0",
+    "electron-packager": "^13.1.1"
+  }
+}
