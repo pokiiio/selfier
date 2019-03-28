@@ -3,6 +3,7 @@ var height = 720;
 var video = document.getElementById('camera');
 var canvas = document.getElementById('canvas');
 var lastPictureJpeg = null;
+var lastPictureDateString = '';
 var ipc = require('electron').ipcRenderer;
 
 canvas.style.display = 'none';
@@ -56,6 +57,7 @@ function createJpegData() {
     canvas.setAttribute('height', height);
     ctx.drawImage(video, 0, 0, width, height);
     lastPictureJpeg = canvas.toDataURL('image/jpeg');
+    lastPictureDateString = new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000).toISOString().replace(/([\-T:.Z])/g, '');
 }
 
 function displaySavedPicture() {
@@ -81,10 +83,9 @@ function displaySavedPicture() {
 }
 
 function savePicture() {
-    var dateString = new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000).toISOString().replace(/([\-T:.Z])/g, '');
     var a = document.createElement('a');
     a.href = lastPictureJpeg;
-    a.download = 'image_' + dateString + '.jpg';
+    a.download = 'image_' + lastPictureDateString + '.jpg';
     document.body.appendChild(a);
     a.click();
 }
