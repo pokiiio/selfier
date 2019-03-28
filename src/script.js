@@ -47,10 +47,6 @@ var takePicture = function () {
     displaySavedPicture();
 }
 
-var recordMovie = function () {
-    alert('double clicked');
-}
-
 function createJpegData() {
     var ctx = canvas.getContext('2d');
     canvas.setAttribute('width', width);
