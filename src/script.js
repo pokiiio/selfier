@@ -25,6 +25,10 @@ navigator.getUserMedia({
 });
 
 ipc.on('save', function (event, arg) {
+    if (canvas.style.display === 'none') {
+        takePicture();
+    }
+
     savePicture();
 });
 
